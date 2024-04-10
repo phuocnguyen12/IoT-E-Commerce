@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+/* Import the base styles */
+@import "tailwindcss/base";
+
+/* Import component classes */
+@import "tailwindcss/components";
+
+/* Apply utility classes */
+@import "tailwindcss/utilities";
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+$blue: #0066ff;
+$black: #130f40;
+$white: #fff;
+$light-color: #666;
+$light-bg: #f3f3f3;
+$box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+$border: 0.2rem solid rgba(0, 0, 0, 0.1);
+$outline: 0.1rem solid rgba(0, 0, 0, 0.1);
+$outline-hover: 0.2rem solid $orange;
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+}
+
+section {
+  padding: 2rem 9%;
+}
+
+footer {
+  padding: 2rem 9%;
+}
+
+.heading {
+  text-align: center;
+  font-size: 3.5rem;
+  color: $black;
+  padding: 2rem 0 3rem 0;
+
+  span {
+    background: $orange;
+    color: #fff;
+    display: inline-block;
+    padding: 0.5rem 3rem;
+    clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0 100%, 7% 50%, 0 0);
+  }
+}
+
+.btn {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.8rem 3rem;
+  font-size: 1.7rem;
+  color: $black;
+  border: 0.2rem solid $black;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background: none;
+
+  &:hover {
+    color: #fff;
+    background: $orange;
+  }
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+
+  section {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .footer {
+    text-align: center;
+
+    .box-container {
+      .box {
+        img {
+          margin: 2rem auto;
+        }
+      }
+    }
+  }
+}

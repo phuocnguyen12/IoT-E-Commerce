@@ -1,0 +1,89 @@
+@import "../../index.scss";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 9%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  background: #fff;
+  box-shadow: $box-shadow;
+
+//   .logo {
+//     display: flex;
+//     justify-content: start;
+//     max-width: 100%;
+//     width: 20rem;
+//     height: 5rem;
+//     cursor: pointer;
+//   }
+
+  .icons {
+    button {
+      height: 4.5rem;
+      width: 4.5rem;
+      line-height: 4.5rem;
+      margin-left: 0.5rem;
+      cursor: pointer;
+      text-align: center;
+      font-size: 2rem;
+      background: #eee;
+      border-radius: 0.5rem;
+
+      .fa-icon {
+        color: $light-color;
+        transition-duration: 0s;
+      }
+
+      &:hover {
+        background: $orange;
+
+        .fa-icon {
+          color: #fff;
+        }
+      }
+    }
+
+    #menu-btn {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .header {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    .navbar {
+      position: absolute;
+      top: 99%;
+      left: 0;
+      right: 0;
+      background: $white;
+      border-top: $border;
+      border-bottom: $border;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+      &.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+
+      .menu-link {
+        margin: 1.5rem;
+        padding: 1.5rem;
+        background: $light-bg;
+        font-size: 2rem;
+        display: block;
+        border-radius: 0.5rem;
+      }
+    }
+  }
+}

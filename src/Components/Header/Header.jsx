@@ -1,50 +1,85 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCircleXmark,
-  faSpinner,
-  faMagnifyingGlass,
-} from "@fortawesome/free-solid-svg-icons";
+/* eslint-disable no-unused-vars */
+import React, { useState } from 'react'
+import { faBars, faCartShopping, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'react-router-dom'
+// import logoImage from '../../assets/logo.png'
+// import './HeaderComponent.scss'
+import Navbar from './NavBar/NavBar'
+// import SearchForm from './SearchForm/SearchForm'
+// import ShoppingCart from './ShoppingCart/ShoppingCart'
+// import UserForm from './UserForm/UserForm'
 
-function Header() {
+const HeaderComponent = () => {
+  const [isActiveSearch, setIsActiveSearch] = useState(false)
+  const [isActiveCart, setIsActiveCart] = useState(false)
+  const [isActiveAuth, setIsActiveAuth] = useState(false)
+  const [isActiveMenu, setIsActiveMenu] = useState(false)
+
+  window.onscroll = () => {
+    setIsActiveSearch(false)
+    setIsActiveCart(false)
+    setIsActiveAuth(false)
+    setIsActiveMenu(false)
+  }
+
+  const handleSearchClick = () => {
+    setIsActiveSearch((prevIsActive) => !prevIsActive)
+    setIsActiveCart(false)
+    setIsActiveAuth(false)
+    setIsActiveMenu(false)
+  }
+
+  const handleCartClick = () => {
+    setIsActiveCart((prevIsActive) => !prevIsActive)
+    setIsActiveSearch(false)
+    setIsActiveAuth(false)
+    setIsActiveMenu(false)
+  }
+
+  const handleAuthClick = () => {
+    setIsActiveAuth((prevIsActive) => !prevIsActive)
+    setIsActiveSearch(false)
+    setIsActiveCart(false)
+    setIsActiveMenu(false)
+  }
+
+  const handleMenuClick = () => {
+    setIsActiveMenu((prevIsActive) => !prevIsActive)
+    setIsActiveSearch(false)
+    setIsActiveCart(false)
+    setIsActiveAuth(false)
+  }
+
   return (
-    <header>
-      <div className="inner">
-        <div className="title">
-          <a>IoT E-commerce</a>
-        </div>
+    <header className='header'>
+      {/* Logo */}
+      <Link className='logo' to={'/'}>
+        {/* <img src={logoImage} alt='logo' /> */}
+      </Link>
 
-        <div className="SearchBar">
-          <input placeholder="Search Product..." />
-          <button className="clear">
-            <FontAwesomeIcon icon={faCircleXmark} />
-          </button>
+      <Navbar active={isActiveMenu} />
 
-          <FontAwesomeIcon className="loading" icon={faSpinner} />
-
-          <button className="Search-btn">
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
-          </button>
-        </div>
-
-        <div className="action">
-          <nav>
-            <ul>
-              <li>
-                <a href="#">Home</a>
-              </li>
-              <li>
-                <a href="/about">About</a>
-              </li>
-              <li>
-                <a href="/contact">Contact</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+      <div className='icons'>
+        <button type='button' id='menu-btn' onClick={handleMenuClick}>
+          <FontAwesomeIcon className='fa-icon' icon={faBars} />
+        </button>
+        <button type='button' id='search-btn' onClick={handleSearchClick}>
+          <FontAwesomeIcon className='fa-icon' icon={faMagnifyingGlass} />
+        </button>
+        <button type='button' id='cart-btn' onClick={handleCartClick}>
+          <FontAwesomeIcon className='fa-icon' icon={faCartShopping} />
+        </button>
+        <button type='button' id='user-btn' onClick={handleAuthClick}>
+          <FontAwesomeIcon className='fa-icon' icon={faUser} />
+        </button>
       </div>
+
+      {/* <SearchForm active={isActiveSearch} />
+      <ShoppingCart active={isActiveCart} />
+      <UserForm active={isActiveAuth} /> */}
     </header>
-  );
+  )
 }
 
-export default Header;
+export default HeaderComponent
