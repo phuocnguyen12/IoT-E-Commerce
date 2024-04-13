@@ -1,0 +1,68 @@
+@import "../../../index.scss";
+
+.shopping-cart {
+  position: absolute;
+  top: 110%;
+  right: -110%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 30rem;
+  max-height: 60rem;
+  box-shadow: $box-shadow;
+  background: #fff;
+  overflow: auto;
+
+  &.active {
+    right: 2rem;
+  }
+
+  .box {
+    display: flex;
+    gap: 1;
+    align-items: center;
+    margin: 1rem 0;
+    position: relative;
+
+    img {
+      height: 10rem;
+      width: 10rem;
+      margin: 1rem;
+    }
+
+    .content {
+      h3 {
+        color: $black;
+        font-size: 1.6rem;
+      }
+
+      span {
+        color: $light-color;
+        font-size: 1.4rem;
+      }
+
+      .quantity {
+        margin-left: 1rem;
+      }
+    }
+
+    .trash-icon {
+      position: absolute;
+      top: 50%;
+      right: 1.2rem;
+      color: $light-color;
+      font-size: 2rem;
+      cursor: pointer;
+      transform: translateY(-50%);
+      margin-left: 1rem;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
