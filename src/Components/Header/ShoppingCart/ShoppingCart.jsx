@@ -9,11 +9,11 @@ import { toast } from 'react-toastify'
 import { removeCart } from '../../../apis/user'
 import { getCurrent } from '../../../store/user/asyncActions'
 import './ShoppingCart.scss'
-import path from '../../../ultils/path'
+import path from '../../../utils/path'
 
 const ShoppingCart = ({ active }) => {
   const { current } = useSelector((state) => state.user)
-  const count = useSelector((state) => state.counter.value)
+  const count = useSelector((state) => state.counter.value);
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -28,18 +28,18 @@ const ShoppingCart = ({ active }) => {
   return (
     <div className={`shopping-cart ${active ? 'active' : ''}`}>
       <div className='flex items-center justify-center my-4 pb-4 text-6xl font-bold border-b text-blue-400'>
-        <div>Your Cart</div>
+        <div> Your Cart </div>
       </div>
       {!current?.cart && (
         <div className='flex items-center justify-center my-4 border-b text-3xl'>
-          <div className='my-6'>Your cart is empty</div>
+          <div className='my-6'> Your Cart Is Empty </div>
         </div>
       )}
       {current?.cart &&
         current?.cart?.map((el) => (
           <div key={el._id} className='box'>
             <FontAwesomeIcon className='trash-icon' icon={faTrash} onClick={() => removeCarts(el?.product?._id)} />
-            <img src={el?.product?.images} alt='Product' className='flex flex-col' />
+            <img src={el?.product?.images} alt='product' className='flex flex-col' />
             <div className='flex flex-col gap-2'>
               <h3 className='text-3xl font-bold'>{el?.product?.title}</h3>
               <span className='text-xl'>{el?.product?.price}$</span>
@@ -48,7 +48,7 @@ const ShoppingCart = ({ active }) => {
         ))}
       <div className='border-t my-4'></div>
       <div className='btn' onClick={() => navigate(`/member/${path.MY_CART}`)}>
-        check out
+        Check Out
       </div>
     </div>
   )
