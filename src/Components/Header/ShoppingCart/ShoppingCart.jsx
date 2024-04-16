@@ -13,7 +13,7 @@ import path from '../../../utils/path'
 
 const ShoppingCart = ({ active }) => {
   const { current } = useSelector((state) => state.user)
-  const count = useSelector((state) => state.counter.value);
+  const count = useSelector((state) => state.counter.value)
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
